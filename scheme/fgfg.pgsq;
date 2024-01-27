@@ -1,0 +1,41 @@
+
++-----------------+        +---------------------+       +--------------+
+|     Drugs       |        |    Prescriptions    |       |   Branches   |
++-----------------+        +---------------------+       +--------------+
+| DrugID (PK)     |   +--->| PrescriptionID (PK) |       | BranchID (PK)|
+| Name            |   |    | DoctorFullName      |       | PharmacyName |
+| GenericName     |   |    | DrugID (FK)         +-------| Address      |
+| Batch           |   |    | PrescriptionNumber  |       | OperatingHours|
+| ReleaseDate     |   |    | QuantityInStock     |       | PhoneNumber  |
+| ExpiryDate      |   |    | PharmacyBranches    |       | DrugID (FK)  |
+| Quantity        |   |    +---------------------+       | DrugStock    |
+| PharmacyBranches|   |                                  +--------------+
++-----------------+   |
+        
+        |             |   +---------------------+
+        |             +--->|    Transactions    |
+        |                 +---------------------+
+        |                  | TransactionID (PK) |
+        |                  | PharmacistName     |
+        |                  | DoctorName         |
+        |                  | ClientName         |
+        |                  | DrugID (FK)        |
+        |                  | TransactionDate    |
+        |                 +---------------------+
+        + ---------------+
++-----------------+      |     
+|    Clients      |      |
++-----------------+      |
+| ClientID (PK)   |      |
+| ClientFullName  |      |
+| DrugID (FK)     |      |
+| DispenseDate    |      |
++-----------------+      |
++-----------------+      |
+|    Price        |      |
++-----------------+      |
+| priceID (PK)    |      |
+| price           |      |
+| DrugID (FK)     |------+
+|                 |
++-----------------+
